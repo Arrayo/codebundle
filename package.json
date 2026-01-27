@@ -1,11 +1,18 @@
 {
   "name": "codebundle",
   "displayName": "CodeBundle",
-  "publisher": "francisco.caballero",
+  "publisher": "francisco",
   "description": "Export entire folders into a single AI-optimized Markdown file for LLMs and documentation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "icon": "icon.png",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/Arrayo/codebundle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Arrayo/codebundle/issues"
+  },
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -25,7 +32,7 @@
     "context",
     "codebundle"
   ],
-  "activationEvents": [],
+  "activationEvents": ["onCommand:codebundle.exportFolderToMarkdown"],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
