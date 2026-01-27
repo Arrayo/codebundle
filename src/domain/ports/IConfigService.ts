@@ -4,4 +4,5 @@ export interface IConfigService {
   loadConfig(rootPath: string): Promise<Config>;
   getAutoCopyToClipboard(): boolean;
   getOpenAfterExport(): boolean;
+  getDefaultOutputFolder(): string;
 }

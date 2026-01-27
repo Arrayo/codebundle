@@ -1,16 +1,30 @@
 {
   "name": "codebundle",
-  "displayName": "CodeBundle",
-  "publisher": "francisco.caballero",
-  "description": "Export entire folders into a single AI-optimized Markdown file for LLMs and documentation",
-  "version": "0.0.1",
+  "displayName": "CodeBundle - Export Code to Markdown for AI",
+  "publisher": "arrayo",
+  "description": "Export entire projects to AI-optimized Markdown for ChatGPT, Claude & LLMs. Bundle folders, code review, documentation generation.",
+  "version": "1.0.0",
   "license": "MIT",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arrayo/codebundle.git"
+  },
+  "homepage": "https://github.com/Arrayo/codebundle#readme",
+  "bugs": {
+    "url": "https://github.com/Arrayo/codebundle/issues"
+  },
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "qna": "https://github.com/Arrayo/codebundle/issues",
   "engines": {
     "vscode": "^1.105.0"
   },
   "categories": [
     "Formatters",
+    "Programming Languages",
     "Other"
   ],
   "keywords": [
@@ -22,10 +36,23 @@
     "llm",
     "chatgpt",
     "claude",
+    "gpt",
+    "openai",
+    "anthropic",
     "context",
-    "codebundle"
+    "code",
+    "project",
+    "folder",
+    "clipboard",
+    "copy",
+    "share",
+    "code-review",
+    "assistant",
+    "prompt",
+    "generator",
+    "converter"
   ],
-  "activationEvents": [],
+  "activationEvents": ["onCommand:codebundle.exportFolderToMarkdown"],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -61,6 +88,11 @@
           "type": "boolean",
           "default": true,
           "description": "Automatically open the exported file in the editor after generation."
+        },
+        "codebundle.defaultOutputFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Default folder for saving exported bundles. Supports ${userHome} and ${workspaceFolder} variables. If empty or folder doesn't exist, uses the project folder."
         }
       }
     }

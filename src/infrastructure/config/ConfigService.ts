@@ -34,6 +34,12 @@ export class ConfigService implements IConfigService {
       .get<boolean>("openAfterExport", true);
   }
 
+  getDefaultOutputFolder(): string {
+    return vscode.workspace
+      .getConfiguration("codebundle")
+      .get<string>("defaultOutputFolder", "");
+  }
+
   private mergeWithDefaults(partial: Partial<Config>): Config {
     return {
       maxFiles: this.clampInt(partial.maxFiles, DEFAULT_CONFIG.maxFiles, 1, 100_000),

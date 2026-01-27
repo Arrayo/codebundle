@@ -14,3 +14,8 @@ esbuild.js
 .editorconfig
 .prettierrc
 .prettierignore
+CHECKLIST.md
+PUBLISHING.md
+.vscode-test.mjs
+eslint.config.mjs
+package-lock.json

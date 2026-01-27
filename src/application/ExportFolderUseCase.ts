@@ -1,4 +1,5 @@
 import * as path from "path";
+import * as os from "os";
 import type {
   IFileSystem,
   IUIService,
@@ -25,7 +26,7 @@ export class ExportFolderUseCase {
   async execute(rootPath: string): Promise<void> {
     const config = await this.configService.loadConfig(rootPath);
 
-    const defaultSavePath = path.join(rootPath, "codebundle.md");
+    const defaultSavePath = await this.resolveDefaultSavePath(rootPath);
     const saveUri = await this.uiService.showSaveDialog(defaultSavePath);
 
     if (!saveUri) {
@@ -92,5 +93,33 @@ export class ExportFolderUseCase {
         this.uiService.showInformationMessage(message);
       }
     );
+  }
+
+  private async resolveDefaultSavePath(rootPath: string): Promise<string> {
+    const configuredFolder = this.configService.getDefaultOutputFolder().trim();
+
+    if (!configuredFolder) {
+      return path.join(rootPath, "codebundle.md");
+    }
+
+    const resolvedFolder = this.resolveVariables(configuredFolder, rootPath);
+
+    try {
+      const stat = await this.fileSystem.stat(resolvedFolder);
+      if (stat) {
+        return path.join(resolvedFolder, "codebundle.md");
+      }
+    } catch {
+      // Folder doesn't exist, fallback to project root
+    }
+
+    return path.join(rootPath, "codebundle.md");
+  }
+
+  private resolveVariables(folder: string, rootPath: string): string {
+    return folder
+      .replace(/\$\{userHome\}/g, os.homedir())
+      .replace(/\$\{workspaceFolder\}/g, rootPath)
+      .replace(/^~/, os.homedir());
   }
 }

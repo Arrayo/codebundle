@@ -17,10 +17,10 @@ export interface Config {
 }
 
 export const DEFAULT_CONFIG: Config = {
-  maxFiles: 2000,
-  maxFileBytes: 512_000,
-  maxTotalBytes: 3_000_000,
-  maxFileLines: 2500,
+  maxFiles: 10000,
+  maxFileBytes: 5_000_000,
+  maxTotalBytes: 100_000_000,
+  maxFileLines: 50000,
   additionalExcludes: [],
   includeProjectTree: true,
   includeGlobs: [],
