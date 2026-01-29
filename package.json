@@ -2,10 +2,12 @@
   "name": "codebundle",
   "displayName": "CodeBundle - Export Code to Markdown for AI",
   "publisher": "arrayo",
+  "publisherDisplayName": "Arrayo",
   "description": "Export entire projects to AI-optimized Markdown for ChatGPT, Claude & LLMs. Bundle folders, code review, documentation generation.",
   "version": "1.0.0",
   "license": "MIT",
   "icon": "icon.png",
+  "markdown": "github",
   "repository": {
     "type": "git",
     "url": "https://github.com/Arrayo/codebundle.git"
@@ -18,15 +20,11 @@
     "color": "#1e1e1e",
     "theme": "dark"
   },
-  "qna": "https://github.com/Arrayo/codebundle/issues",
+  "qna": false,
   "engines": {
     "vscode": "^1.105.0"
   },
-  "categories": [
-    "Formatters",
-    "Programming Languages",
-    "Other"
-  ],
+  "categories": ["Formatters", "Programming Languages", "Other"],
   "keywords": [
     "markdown",
     "export",

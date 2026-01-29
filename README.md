@@ -8,27 +8,38 @@ Export your entire codebase into a single AI-optimized Markdown file for LLMs (C
 
 > **Perfect for AI code review, documentation generation, and sharing entire projects with ChatGPT, Claude, or any LLM.**
 
+**Quick start:** Right-click any folder → **CodeBundle: Export Folder to Markdown** → paste into your LLM.
+
+---
+
 ## ✨ Features
 
 - 📦 **Export complete projects** into a single structured Markdown file
-- 🤖 **AI-optimized** - perfect format for ChatGPT, Claude and other LLMs
-- 🔒 **Automatic redaction** of secrets, API keys and sensitive data (best-effort)
+- 🤖 **AI-optimized** format for ChatGPT, Claude and other LLMs
+- 🔒 **Automatic redaction** of secrets, API keys and sensitive data (best-effort, local-only)
 - 🎯 **Flexible filtering** with include/exclude globs and `.gitignore` support
 - 🌳 **Project tree** for better visual context
 - 📋 **Auto-copy** to clipboard for instant use
-- ⚡ **High limits (configurable)** - up to **100MB** and **10K files**
+- ⚡ **High limits (configurable)** — up to **100MB** and **10K files**
 - 🎨 **Syntax highlighting** with automatic language detection
 - 📏 **Smart truncation** of large files with clear indicators
 
+---
+
+## 📸 Preview
+
+![CodeBundle export demo](images/demo.gif)
+
+---
+
 ## 📦 Install
 
-Search for **CodeBundle** in your editor's Extensions marketplace.
+Search for **CodeBundle** in your editor’s Extensions marketplace.
 
-Extension ID (Open VSX / Cursor / Windsurf):
+Extension ID:
 - `arrayo.codebundle`
 
-Legacy ID (previous namespace):
-- `francisco.codebundle`
+---
 
 ## 🚀 Usage
 
@@ -42,9 +53,11 @@ Legacy ID (previous namespace):
 ### From the command palette
 
 1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
-2. Type: **CodeBundle: Export Folder to Markdown**
+2. Type **CodeBundle: Export Folder to Markdown**
 3. Select the folder to export
 4. Save the generated file
+
+---
 
 ## ⚙️ Configuration
 
@@ -53,12 +66,12 @@ Legacy ID (previous namespace):
 Open VS Code settings (`Ctrl+,` / `Cmd+,`) and search for **"CodeBundle"**:
 
 | Setting | Type | Default | Description |
-|---------|------|---------|-------------|
+|--------|------|---------|-------------|
 | `codebundle.autoCopyToClipboard` | boolean | `true` | Automatically copy to clipboard |
 | `codebundle.openAfterExport` | boolean | `true` | Automatically open exported file |
 | `codebundle.defaultOutputFolder` | string | `""` | Default folder for saving bundles. Supports `${userHome}`, `${workspaceFolder}`, and `~`. Falls back to project folder if empty or doesn't exist. |
 
-**Examples for `defaultOutputFolder`:**
+**Examples:**
 ```json
 "codebundle.defaultOutputFolder": "${userHome}/Downloads"
 "codebundle.defaultOutputFolder": "~/Documents/CodeBundles"
@@ -158,7 +171,7 @@ Create snapshots for:
 
 ## 🛡️ Security
 
-CodeBundle includes **automatic redaction** of sensitive data (best-effort):
+CodeBundle includes **automatic redaction** of sensitive data (best-effort, local-only):
 
 ✅ API keys (`apiKey`, `api_key`, `token`, etc.)  
 ✅ Authentication tokens (Bearer tokens)  
